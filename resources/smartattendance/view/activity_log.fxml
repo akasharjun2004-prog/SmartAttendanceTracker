@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.ActivityLogController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: #f4f6f8;">
+
+    <!-- ===== Top Header ===== -->
+    <top>
+        <VBox spacing="10">
+            <!-- Header Bar -->
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #2c3e50;" spacing="10">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="20"/>
+                </padding>
+                <Label text="System Activity Log"
+                       style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Search Bar -->
+            <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10 20 0 20;">
+                <TextField fx:id="txtSearch" promptText="Search user or action..." 
+                           style="-fx-font-size: 14px; -fx-background-radius: 8; -fx-padding: 6 10; -fx-pref-width: 250;"/>
+                <Button text="Search" onAction="#handleSearch"
+                        style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; 
+                               -fx-background-radius: 10;" prefWidth="100"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ===== Center Section ===== -->
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="Recent System Activities"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+            <TableView fx:id="tblActivityLog"
+                       prefHeight="500" prefWidth="900"
+                       style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;
+                              -fx-border-color: #dcdcdc; -fx-border-width: 1;">
+                <columns>
+                    <TableColumn fx:id="colTimestamp" text="Timestamp" prefWidth="250"/>
+                    <TableColumn fx:id="colUser" text="User" prefWidth="200"/>
+                    <TableColumn fx:id="colAction" text="Action" prefWidth="450"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="btnRefresh" text="Refresh Logs"
+                        onAction="#handleRefresh"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white; 
+                               -fx-background-color: #3498db; -fx-background-radius: 10;"
+                        prefWidth="160" prefHeight="40"/>
+
+                <Button fx:id="btnClearLogs" text="Clear Logs"
+                        onAction="#handleClearLogs"
+                        style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white; 
+                               -fx-background-color: #e74c3c; -fx-background-radius: 10;"
+                        prefWidth="160" prefHeight="40"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

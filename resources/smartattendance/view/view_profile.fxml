@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootPane"
+			xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.ViewProfileController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: #e6e6e6;">
+
+    <!-- Top Header -->
+    <top>
+        <HBox style="-fx-background-color: #2B579A; -fx-padding: 15;" spacing="10">
+    <Label text="Employee Profile"
+           style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <Pane HBox.hgrow="ALWAYS"/>
+
+    <Button text="Change Password"
+            onAction="#handleChangePassword"
+            style="-fx-background-color: white; -fx-text-fill:#2B579A; 
+                   -fx-font-weight:bold; -fx-background-radius:10;"
+            prefWidth="160"/>
+
+    <Button text="Back"
+            onAction="#handleBack"
+            style="-fx-background-color: white; -fx-text-fill:#2B579A; 
+                   -fx-font-weight:bold; -fx-background-radius:10;"
+            prefWidth="90"/>
+</HBox>
+
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="30" style="-fx-padding: 30;">
+            
+            <!-- Profile Section -->
+            <HBox spacing="40" alignment="CENTER">
+                <!-- QR Image -->
+                <ImageView fx:id="imgQR"
+                           fitHeight="150"
+                           fitWidth="150"
+                           style="-fx-border-color: #2B579A; -fx-border-width: 2; -fx-border-radius: 10;"/>
+                
+                <!-- Employee Details -->
+                <VBox spacing="10">
+                    <Label fx:id="lblName" text="Name: Akash J" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                    <Label fx:id="lblId" text="Employee ID: EMP101" style="-fx-font-size:16px;"/>
+                    <Label fx:id="lblEmail" text="Email: akash@example.com" style="-fx-font-size:16px;"/>
+                    <Label fx:id="lblPhone" text="Phone: 9876543210" style="-fx-font-size:16px;"/>
+                    <Label fx:id="lblRole" text="Role: Employee" style="-fx-font-size:16px;"/>
+                    <Label fx:id="lblJoinDate" text="Joined: 2024-01-10" style="-fx-font-size:16px;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Pending Requests -->
+            <VBox spacing="10" prefWidth="700" style="-fx-background-color:white; -fx-padding:20; -fx-background-radius:15; -fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.1),10,0,0,5);">
+                <Label text="Pending Requests" style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:#2B579A;"/>
+                <TableView fx:id="tblRequests" prefHeight="150">
+                    <columns>
+                        <TableColumn fx:id="colType" text="Type" prefWidth="200"/>
+                        <TableColumn fx:id="colReason" text="Reason" prefWidth="300"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Attendance Summary -->
+           <!-- Attendance Summary -->
+<VBox spacing="10" prefWidth="700" 
+      style="-fx-background-color:white; -fx-padding:20; -fx-background-radius:15; 
+             -fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.1),10,0,0,5);">
+    <Label text="Attendance Summary (This Month)" 
+           style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:#2B579A;"/>
+
+    <GridPane hgap="60" vgap="15" alignment="CENTER_LEFT">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="200"/>
+            <ColumnConstraints halignment="LEFT" minWidth="200"/>
+        </columnConstraints>
+
+        <Label text="Present Days:" 
+               GridPane.rowIndex="0" GridPane.columnIndex="0"
+               style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+        <Label fx:id="lblPresentDays" text="18" 
+               GridPane.rowIndex="0" GridPane.columnIndex="1"
+               style="-fx-font-size:16px;"/>
+
+        <Label text="Total Hours:" 
+               GridPane.rowIndex="1" GridPane.columnIndex="0"
+               style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+        <Label fx:id="lblTotalHours" text="142 hrs" 
+               GridPane.rowIndex="1" GridPane.columnIndex="1"
+               style="-fx-font-size:16px;"/>
+    </GridPane>
+</VBox>
+</VBox>
+    </center>
+</BorderPane>

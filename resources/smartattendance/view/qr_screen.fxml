@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.QRScreenController"
+            prefWidth="900" prefHeight="600"
+            style="-fx-background-color: linear-gradient(to bottom right, #1b1b1b, #2b2b2b);
+                   -fx-font-family: 'Segoe UI';
+                   -fx-text-fill: white;">
+
+    <center>
+        <VBox alignment="CENTER" spacing="25" BorderPane.alignment="CENTER">
+            <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+            <Label text="Scan Your QR Code"
+                   style="-fx-text-fill: #EAEAEA;
+                          -fx-font-size: 30px;
+                          -fx-font-weight: bold;
+                          -fx-effect: dropshadow(gaussian, rgba(0,180,255,0.5), 10, 0.3, 0, 0);"/>
+
+            <StackPane prefWidth="520" prefHeight="380"
+                       style="-fx-background-color: rgba(255,255,255,0.12);
+                              -fx-background-radius: 20;
+                              -fx-border-radius: 20;
+                              -fx-border-color: rgba(255,255,255,0.25);
+                              -fx-border-width: 1.5;
+                              -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 15, 0, 0, 5);">
+                <ImageView fx:id="camView" fitWidth="500" fitHeight="360"/>
+            </StackPane>
+
+            <Label text="Position your QR code within the frame"
+                   style="-fx-text-fill: #BBBBBB;
+                          -fx-font-size: 16px;
+                          -fx-padding: 10 0 0 0;"/>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.PermissionController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #1a1a2e;">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #16213e;" prefHeight="60">
+            <padding><Insets left="20" right="20" top="10" bottom="10"/></padding>
+            <Label text="Request Permission"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Center Form -->
+    <center>
+        <StackPane>
+            <VBox alignment="TOP_CENTER" spacing="15" maxWidth="400">
+                <padding><Insets top="40" left="20" right="20" bottom="40"/></padding>
+
+                <Label text="Permission Type:" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <ComboBox fx:id="cmbPermissionType" prefWidth="250" maxWidth="250"/>
+
+                <Label text="Permission Date:" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <DatePicker fx:id="dpPermissionDate" prefWidth="250" maxWidth="250"/>
+
+                <Label text="Start Time:" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <TextField fx:id="txtStartTime" promptText="e.g., 10:30 AM" prefWidth="250" maxWidth="250"/>
+
+                <Label text="End Time:" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <TextField fx:id="txtEndTime" promptText="e.g., 12:30 PM" prefWidth="250" maxWidth="250"/>
+
+                <Label text="Reason:" style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+                <TextArea fx:id="txtReason" promptText="Enter reason for permission..."
+                          prefWidth="350" maxWidth="350" prefHeight="100" maxHeight="150" wrapText="true"/>
+
+                <HBox spacing="20" alignment="CENTER">
+                    <Button fx:id="btnSubmit" text="Submit Request"
+                            onAction="#handleSubmitPermission"
+                            style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                            prefWidth="160" prefHeight="35"/>
+
+                    <Button fx:id="btnCancel" text="Cancel"
+                            onAction="#handleCancel"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                            prefWidth="100" prefHeight="35"/>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.UserFormController"
+            prefWidth="500" prefHeight="600"
+            style="-fx-background-color:grey; -fx-padding:25; -fx-background-radius:12;">
+
+    <VBox spacing="12" alignment="CENTER" AnchorPane.topAnchor="20.0" AnchorPane.bottomAnchor="20.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <Label text="🧾 Employee Details" style="-fx-font-size:22; -fx-font-weight:bold;" />
+
+        <TextField fx:id="txtName" promptText="Full Name" maxWidth="300"/>
+        <TextField fx:id="txtEmail" promptText="Email Address" maxWidth="300"/>
+        <TextField fx:id="txtPhone" promptText="Phone Number" maxWidth="300"/>
+        <TextField fx:id="txtAddress" promptText="Address" maxWidth="300"/>
+        <ComboBox fx:id="cbRole" promptText="Select Role" maxWidth="300"/>
+        <ComboBox fx:id="cbManager" promptText="Select Manager" maxWidth="300"/>
+        <TextField fx:id="txtQrCode" promptText="QR Code (auto-generated)" editable="false" maxWidth="300"/>
+        <TextField fx:id="txtPassword" promptText="Password (auto-generated)" editable="false" maxWidth="300"/>
+
+        <Label fx:id="lblStatus" style="-fx-text-fill:red; -fx-font-weight:bold;" />
+
+        <HBox spacing="10" alignment="CENTER_RIGHT" maxWidth="300">
+            <Button text="Save" onAction="#handleSave"
+                    style="-fx-background-color:#0984e3; -fx-text-fill:white; -fx-background-radius:8;" />
+            <Button text="Cancel" onAction="#handleCancel"
+                    style="-fx-background-color:#b2bec3; -fx-text-fill:black; -fx-background-radius:8;" />
+        </HBox>
+
+    </VBox>
+</AnchorPane>

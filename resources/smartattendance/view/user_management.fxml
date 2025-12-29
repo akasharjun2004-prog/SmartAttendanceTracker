@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.UserManagementController"
+            prefWidth="900" prefHeight="600">
+
+    <!-- 🔹 Top Header -->
+    <top>
+        <HBox spacing="10" style="-fx-padding:10; -fx-background-color:#2d3436;">
+            <Label text="👥 User Management"
+                   style="-fx-text-fill:white; -fx-font-size:20; -fx-font-weight:bold;" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button text="➕ Add User"
+                    onAction="#handleAddUser"
+                    style="-fx-background-color:#0984e3; -fx-text-fill:white; -fx-padding:6 14; -fx-background-radius:8;" />
+            <Button text="🗑 Delete User"
+                    onAction="#handleDeleteUser"
+                    style="-fx-background-color:#d63031; -fx-text-fill:white; -fx-padding:6 14; -fx-background-radius:8;" />
+        </HBox>
+    </top>
+
+    <!-- 🔹 Center: Table -->
+    <center>
+        <VBox spacing="10" style="-fx-padding:15;">
+            <TableView fx:id="tblUsers" prefHeight="400" style="-fx-background-color:white;">
+                <columns>
+                    <TableColumn text="Name" prefWidth="150" fx:id="colName" />
+                    <TableColumn text="Email" prefWidth="200" fx:id="colEmail" />
+                    <TableColumn text="Phone" prefWidth="120" fx:id="colPhone" />
+                    <TableColumn text="Role" prefWidth="100" fx:id="colRole" />
+                    <TableColumn text="Address" prefWidth="200" fx:id="colAddress" />
+                </columns>
+            </TableView>
+
+            <Label fx:id="lblStatus"
+                   style="-fx-text-fill:#636e72; -fx-font-weight:bold;" />
+        </VBox>
+    </center>
+
+    <!-- 🔹 Bottom: Edit Form -->
+    <bottom>
+        <HBox spacing="10" style="-fx-padding:15; -fx-background-color:#dfe6e9;">
+            <TextField fx:id="txtFullName" promptText="Full Name" prefWidth="150" />
+            <TextField fx:id="txtEmail" promptText="Email" prefWidth="180" />
+            <TextField fx:id="txtPhone" promptText="Phone" prefWidth="120" />
+            <TextField fx:id="txtAddress" promptText="Address" prefWidth="180" />
+            <ComboBox fx:id="cmbRole" promptText="Select Role" prefWidth="120" />
+
+            <Button text="✏️ Edit"
+                    fx:id="btnEdit"
+                    onAction="#handleEditUser"
+                    disable="true"
+                    style="-fx-background-color:#fdcb6e; -fx-text-fill:white; -fx-padding:6 14; -fx-background-radius:8;" />
+
+            <Button text="💾 Update"
+                    onAction="#handleUpdateUser"
+                    style="-fx-background-color:#00b894; -fx-text-fill:white; -fx-padding:6 14; -fx-background-radius:8;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

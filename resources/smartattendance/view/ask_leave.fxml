@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.LeaveController"
+            prefWidth="400" prefHeight="330">
+
+    <children>
+        <VBox spacing="15" layoutX="30" layoutY="20" prefWidth="340">
+
+            <Label text="Request Leave"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <HBox spacing="10">
+                <Label text="Type:" prefWidth="100"/>
+                <ComboBox fx:id="cmbType" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Start Date:" prefWidth="100"/>
+                <DatePicker fx:id="dpStart" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="End Date:" prefWidth="100"/>
+                <DatePicker fx:id="dpEnd" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Reason:" prefWidth="100"/>
+                <TextArea fx:id="txtReason" prefWidth="200" prefHeight="80" wrapText="true"/>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="20">
+                <Button text="Submit" onAction="#handleSubmitLeave"/>
+                <Button text="Cancel" onAction="#handleCancel"/>
+            </HBox>
+
+        </VBox>
+    </children>
+
+</AnchorPane>

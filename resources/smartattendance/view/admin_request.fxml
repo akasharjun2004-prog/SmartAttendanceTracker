@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.AdminRequestController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: #f4f6f8;">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #2c3e50;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Request to Admin"
+                   style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Center -->
+    <center>
+        <VBox spacing="25" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Tabs for Leave / Permission / General -->
+            <TabPane fx:id="tabPaneRequest" prefWidth="950" prefHeight="350"
+                     style="-fx-background-color: #ffffff; -fx-background-radius: 8;">
+                
+                <!-- Leave Request Tab -->
+                <Tab text="Leave Request">
+                    <VBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #ffffff;">
+                        <padding><Insets top="20" left="30" right="30" bottom="20"/></padding>
+
+                        <HBox spacing="15">
+                            <Label text="Leave Type:" style="-fx-font-weight: bold;"/>
+                            <ChoiceBox fx:id="cbLeaveType" prefWidth="200"/>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <Label text="From Date:" style="-fx-font-weight: bold;"/>
+                            <DatePicker fx:id="dpFromDate" prefWidth="200"/>
+                            <Label text="To Date:" style="-fx-font-weight: bold;"/>
+                            <DatePicker fx:id="dpToDate" prefWidth="200"/>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <Label text="Reason:" style="-fx-font-weight: bold;"/>
+                            <TextField fx:id="txtLeaveReason" promptText="Enter reason for leave" prefWidth="500"/>
+                        </HBox>
+
+                        <Button text="Submit Leave Request" fx:id="btnSubmitLeave" onAction="#handleSubmitLeave"
+                                style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                                prefWidth="220" prefHeight="35"/>
+                    </VBox>
+                </Tab>
+
+                <!-- Permission Request Tab -->
+                <Tab text="Permission Request">
+                    <VBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #ffffff;">
+                        <padding><Insets top="20" left="30" right="30" bottom="20"/></padding>
+
+                        <HBox spacing="15">
+                            <Label text="Date:" style="-fx-font-weight: bold;"/>
+                            <DatePicker fx:id="dpPermissionDate" prefWidth="200"/>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <Label text="From Time:" style="-fx-font-weight: bold;"/>
+                            <TextField fx:id="txtFromTime" promptText="HH:mm" prefWidth="150"/>
+                            <Label text="To Time:" style="-fx-font-weight: bold;"/>
+                            <TextField fx:id="txtToTime" promptText="HH:mm" prefWidth="150"/>
+                        </HBox>
+
+                        <HBox spacing="15">
+                            <Label text="Reason:" style="-fx-font-weight: bold;"/>
+                            <TextField fx:id="txtPermissionReason" promptText="Enter reason" prefWidth="500"/>
+                        </HBox>
+
+                        <Button text="Submit Permission Request" fx:id="btnSubmitPermission" onAction="#handleSubmitPermission"
+                                style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                                prefWidth="260" prefHeight="35"/>
+                    </VBox>
+                </Tab>
+
+                <!-- General / Update Request Tab -->
+                <Tab text="General / Update Request">
+                    <VBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #ffffff;">
+                        <padding><Insets top="20" left="30" right="30" bottom="20"/></padding>
+
+                        <HBox spacing="15">
+                            <Label text="Subject:" style="-fx-font-weight: bold;"/>
+                            <TextField fx:id="txtGeneralSubject" promptText="e.g. Employee data correction" prefWidth="400"/>
+                        </HBox>
+
+                        <Label text="Message:" style="-fx-font-weight: bold;"/>
+                        <TextArea fx:id="txtGeneralMessage" promptText="Enter details for the admin"
+                                  wrapText="true" prefWidth="800" prefHeight="120"/>
+
+                        <Button text="Send Update to Admin" fx:id="btnSubmitGeneral" onAction="#handleSubmitGeneral"
+                                style="-fx-background-color: #0f3460; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                                prefWidth="220" prefHeight="35"/>
+                    </VBox>
+                </Tab>
+            </TabPane>
+
+            <!-- Request History Table -->
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Previous Requests"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                <TableView fx:id="tblPreviousRequests" prefWidth="950" prefHeight="230">
+                    <columns>
+                        <TableColumn fx:id="colRequestId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colRequestType" text="Type" prefWidth="120"/>
+                        <TableColumn fx:id="colRequestDate" text="Date" prefWidth="150"/>
+                        <TableColumn fx:id="colRequestDetails" text="Details" prefWidth="430"/>
+                        <TableColumn fx:id="colRequestStatus" text="Status" prefWidth="160"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

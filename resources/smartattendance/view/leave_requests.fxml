@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.LeaveRequestsController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: #ECEFF1;">
+
+    <!-- ===== Top Bar ===== -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              style="-fx-background-color: #2B579A; -fx-padding: 12 20;">
+            <Label text="Leave Requests"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="↻ Refresh"
+                    fx:id="btnRefresh"
+                    onAction="#handleRefresh"
+                    style="-fx-background-color: white; -fx-text-fill: #2B579A; -fx-background-radius: 10; -fx-font-weight: bold;"
+                    prefWidth="90" prefHeight="30"/>
+        </HBox>
+    </top>
+
+    <!-- ===== Center Section ===== -->
+    <center>
+        <VBox spacing="18" alignment="CENTER"
+              style="-fx-background-color: #ECEFF1;">
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+
+            <!-- ===== Table Section ===== -->
+            <TableView fx:id="tblLeaveRequests"
+                       prefHeight="480" prefWidth="930"
+                       style="-fx-background-radius: 10; -fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="colEmployeeName" text="Employee Name" prefWidth="180"/>
+                    <TableColumn fx:id="colFromDate" text="From Date" prefWidth="140"/>
+                    <TableColumn fx:id="colToDate" text="To Date" prefWidth="140"/>
+                    <TableColumn fx:id="colReason" text="Reason" prefWidth="250"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="160"/>
+                </columns>
+            </TableView>
+
+            <!-- ===== Buttons Section ===== -->
+            <HBox spacing="25" alignment="CENTER">
+                <Button fx:id="btnApprove" text="Approve"
+                        onAction="#handleApprove"
+                        style="-fx-background-color: #28A745; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 14;"
+                        prefWidth="120" prefHeight="38"/>
+
+                <Button fx:id="btnReject" text="Reject"
+                        onAction="#handleReject"
+                        style="-fx-background-color: #E81123; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 14;"
+                        prefWidth="120" prefHeight="38"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

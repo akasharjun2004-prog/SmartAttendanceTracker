@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.LoginController"
+            fx:id="rootPane"
+            prefWidth="900" prefHeight="600"
+            style="-fx-background-image: url('/images/login_bg.jpg'); 
+                   -fx-background-size: cover; 
+                   -fx-background-position: center center;">
+
+    <center>
+        <VBox fx:id="card" alignment="CENTER" spacing="15" maxWidth="380"
+              style="-fx-background-color: transparent;
+                     -fx-background-radius: 12; 
+                     -fx-padding: 28;">
+            <children>
+
+                <!-- Title -->
+                <Label text="Smart Attendance Tracker"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;">
+                    <font>
+                        <Font size="22"/>
+                    </font>
+                </Label>
+
+                <!-- Username Field -->
+                <TextField fx:id="usernameField" promptText="Username" prefWidth="320"
+                           style="-fx-background-radius: 8; -fx-padding: 8;"/>
+
+                <!-- Password Field with Eye Toggle -->
+                <StackPane alignment="CENTER_RIGHT">
+                    <children>
+                        <PasswordField fx:id="passwordField" promptText="Password" prefWidth="320"
+                                       style="-fx-background-radius: 8; -fx-padding: 8 36 8 8;"/>
+                        <TextField fx:id="visiblePasswordField" promptText="Password" prefWidth="320"
+                                   visible="false" managed="false"
+                                   style="-fx-background-radius: 8; -fx-padding: 8 36 8 8;"/>
+
+                        <!-- Eye Slash (Default Visible) -->
+                        <ImageView fx:id="eyeClosed" fitWidth="20" fitHeight="20" pickOnBounds="true" preserveRatio="true"
+                                   onMouseClicked="#togglePasswordVisibility">
+                            <image>
+                                <Image url="/images/eye_slash.png"/>
+                            </image>
+                            <StackPane.margin>
+                                <Insets top="0" right="5" bottom="0" left="0"/>
+                            </StackPane.margin>
+                        </ImageView>
+
+                        <!-- Eye Open (Default Hidden) -->
+                        <ImageView fx:id="eyeOpen" fitWidth="20" fitHeight="20" pickOnBounds="true" preserveRatio="true"
+                                   visible="false" managed="false"
+                                   onMouseClicked="#togglePasswordVisibility">
+                            <image>
+                                <Image url="/images/eye.png"/>
+                            </image>
+                            <StackPane.margin>
+                                <Insets top="0" right="5" bottom="0" left="0"/>
+                            </StackPane.margin>
+                        </ImageView>
+                    </children>
+                </StackPane>
+
+                <!-- Buttons -->
+                <Button fx:id="loginButton" text="Login" prefWidth="320" onAction="#handleLogin"
+                        style="-fx-background-color: #2e8b57; 
+                               -fx-text-fill: white; 
+                               -fx-background-radius: 8;"/>
+
+                <Button fx:id="qrButton" text="Login with QR" prefWidth="320" onAction="#handleQRLogin"
+                        style="-fx-background-color: #1e90ff; 
+                               -fx-text-fill: white; 
+                               -fx-background-radius: 8;"/>
+
+               
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="smartattendance.controller.ProfileSettingsController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: #bfbfbf;">
+
+    <!-- Top Header / Spacer -->
+    <top>
+        <HBox style="-fx-background-color: black; -fx-padding: 10 20;">
+            <Label text=" " />
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="30" style="-fx-padding: 20;">
+
+            <!-- Main Card HBox -->
+            <HBox spacing="40" alignment="CENTER">
+
+                <!-- LEFT: Form Card -->
+                <StackPane>
+                    <VBox spacing="15" alignment="TOP_LEFT"
+                          style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8,0,0,4);"
+                          prefWidth="520">
+
+                        <Label text="Edit Employee Details" 
+                               style="-fx-font-size:16px; -fx-font-weight:bold; -fx-text-fill:#2c3e50;"/>
+
+                        <GridPane hgap="20" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                                <ColumnConstraints minWidth="300" halignment="LEFT"/>
+                            </columnConstraints>
+
+                            <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-text-fill:#2c3e50;"/>
+                            <TextField fx:id="txtFullName" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="300"/>
+
+                            <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-text-fill:#2c3e50;"/>
+                            <TextField fx:id="txtEmail" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="300"/>
+
+                            <Label text="Phone Number:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-text-fill:#2c3e50;"/>
+                            <TextField fx:id="txtPhone" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="300"/>
+
+                            <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-text-fill:#2c3e50;"/>
+                            <TextField fx:id="txtAddress" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="300"/>
+
+                            <Label text="Role:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-text-fill:#2c3e50;"/>
+                            <TextField fx:id="txtRole" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="300" editable="false"/>
+
+                            
+                        </GridPane>
+                    </VBox>
+                </StackPane>
+
+                <!-- RIGHT: Title + Buttons -->
+                <VBox spacing="20" alignment="TOP_CENTER" prefWidth="360">
+                    <Label text="Profile Settings"
+                           style="-fx-font-size:24px; -fx-font-weight:bold; -fx-text-fill:#2c3e50;"/>
+                    <Label text="Update admin / user details from here." wrapText="true"
+                           style="-fx-text-fill:#333333; -fx-font-size:13px;" maxWidth="320"/>
+
+                    <HBox spacing="20" alignment="CENTER">
+                        <Button fx:id="btnEdit" text="Edit" onAction="#handleEditProfile"
+                                style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                                prefWidth="120" prefHeight="40"/>
+                        <Button fx:id="btnSave" text="Save" onAction="#handleSaveProfile"
+                                style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+                                prefWidth="120" prefHeight="40"/>
+                    </HBox>
+
+                    <!-- Status Label -->
+                    <Label fx:id="lblStatus" text="" style="-fx-text-fill:#2c3e50; -fx-font-size:12px;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Bottom Padding -->
+    <bottom>
+        <HBox style="-fx-padding:10;" />
+    </bottom>
+</BorderPane>
